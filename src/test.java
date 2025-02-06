@@ -2,23 +2,15 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 
 class Test {
-    public void rotate(int[] nums, int k) {
-        k = k % nums.length;
-        if (k == 0) return;
-
-        reverse(nums, 0, nums.length - 1);
-        reverse(nums, 0, k - 1);
-        reverse(nums, k, nums.length - 1);
-
-
-    }
-    public void reverse(int[] nums, int start, int end){
-        while(start < end){
-            int temp = nums[start];
-            nums[start] = nums[end];
-            nums[end] = temp;
-            start++;
-            end--;
+    public boolean isSubsequence(String s, String t) {
+        int iS = 0;
+        int iT = 0;
+        while(iS < s.length() || iT < t.length()){
+            if(s.charAt(iS) != t.charAt(iT)){
+                iT++;
+            }
+            iS++;
         }
+        return iS == s.length();
     }
 }
